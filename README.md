@@ -10,6 +10,7 @@ assuming you have .net core ^2.0.3 installed
 ### Run one of the following, depending on your platform
 
 ```
+dotnet restore 
 dotnet publish -c Release -r linux-x64 -o out
 dotnet publish -c Release -r osx-x64 -o out
 dotnet publish -c Release -r win-x64 -o out
@@ -60,10 +61,10 @@ ENTRYPOINT ["./snakeAiDnc"]
 ## I'm using [cntlm](http://cntlm.sourceforge.net)
 
 update or remote it before trying out the docker
-
+```
 ENV http_proxy http://172.24.203.241:3128
 ENV https_proxy http://172.24.203.241:3128
-
+```
 ## SSL Connect error during dotnet restore
 
 If you faced SSL Connect error during dotnet restore like i did, very likely it's due to MTU size of container is different from host [issue](https://github.com/moby/moby/issues/22297)
